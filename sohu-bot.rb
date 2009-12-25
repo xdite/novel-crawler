@@ -72,9 +72,11 @@ module SohuNovel
     puts "Translating ...."
     
     s = ""
-    string.each_line do |p|
-      s += translate_text_by_paragraph(p)
-      s += "\n"
+    unless string.blank?
+      string.each_line do |p|
+        s += translate_text_by_paragraph(p)
+        s += "\n"
+      end
     end
     return s
   end
