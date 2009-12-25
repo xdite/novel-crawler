@@ -1,0 +1,27 @@
+Novel Crawler
+========
+
+Description
+------------------
+
+The bot will crawl novel , chapter by chapter , and pack it to RTF / TXT format
+
+Require
+------------------
+
+sudo gem install activesupport 
+sudo gem install sishen-rtranslate
+sudo gem install rtf
+sudo gem install nokogiri
+sudo gem install json
+
+Usage
+------------------
+
+ruby sohu-bout.rb 12345
+
+
+License
+------------------
+Licensed under the MIT: http://www.opensource.org/licenses/mit-license.php
+
