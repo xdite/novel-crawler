@@ -39,8 +39,15 @@ module SohuNovel
   def self.translate_text_by_paragraph(string)
     # Google Translate text limit is among 200
 
+    return "" if string.blank?
+    
     if string.mb_chars.length < 200
-      return RTranslate.t(string,"zh-CN", "zh-TW")
+      begin
+        return RTranslate.t(string,"zh-CN", "zh-TW")
+      rescue
+        puts string
+        return ""
+      end
     else
       length = string.mb_chars.length
       round = length/200+1
@@ -49,7 +56,10 @@ module SohuNovel
         startpoint = i*200
         endpoint = i*200 +199
         s = string.mb_chars[startpoint..endpoint].to_s 
-        new_string += RTranslate.t(s, "zh-CN", "zh-TW")
+       
+        
+        new_string += RTranslate.t(s, "zh-CN", "zh-TW") 
+  
       end
       return new_string
     end
@@ -74,6 +84,7 @@ module SohuNovel
     s = ""
     unless string.blank?
       string.each_line do |p|
+       
         s += translate_text_by_paragraph(p)
         s += "\n"
       end
