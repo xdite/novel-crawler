@@ -10,9 +10,13 @@ Require
 ------------------
 
 sudo gem install activesupport 
+
 sudo gem install sishen-rtranslate
+
 sudo gem install rtf
+
 sudo gem install nokogiri
+
 sudo gem install json
 
 Usage
